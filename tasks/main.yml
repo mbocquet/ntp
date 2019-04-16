@@ -1,0 +1,38 @@
+---
+# tasks file for ntp
+- name: package
+  package:
+    name: 'ntp'
+  tags:
+    - ntp
+    - package
+
+- name: "remove default pool lines"
+  lineinfile:
+    path: '{{ ntp_config }}'
+    regexp: ^pool \d\.debian\.pool\.ntp\.org iburst$
+    state: absent
+  when:
+    - ntp_pool is defined
+  tags:
+    - ntp
+    - config
+    - pool
+    - remove
+
+- name: pool
+  blockinfile:
+    path: '{{ ntp_config }}'
+    block: |
+      {{ ntp_pool }}
+    marker: "# {mark} ANSIBLE MANAGED BLOCK pool"
+    insertafter: "# pool: <http://www.pool.ntp.org/join.html>"
+  when:
+    - ntp_pool is defined
+  notify: ntp restart
+  tags:
+    - ntp
+    - config
+    - pool
+    - set
+...

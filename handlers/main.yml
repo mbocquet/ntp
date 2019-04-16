@@ -1,0 +1,19 @@
+---
+# handlers file for ntp
+
+# reload isn't supported at this time for ntp service. Juste force-reload which
+# can't be handled with Ansible service module !
+# - name: ntp reload
+#   service:
+#     name: 'ntp'
+#     state: 'reloaded'
+#   tags:
+#     - ntp
+
+- name: ntp restart
+  service:
+    name: 'ntp'
+    state: 'restarted'
+  tags:
+    - ntp
+...

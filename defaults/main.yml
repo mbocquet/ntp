@@ -1,0 +1,4 @@
+---
+# defaults file for ntp
+ntp_config: '/etc/ntp.conf'
+...
