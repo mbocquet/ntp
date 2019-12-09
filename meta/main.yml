@@ -1,7 +1,9 @@
 galaxy_info:
   author: Mathias BOCQUET
-  description: Ansible role to deploy NTP (Network Time Protocol) service
-  company: Sekoya.org
+  description: Ansible role to deploy NTP (Network Time Protocol) service.
+  company: Sekoya.org (http://www.sekoya.org)
+
+  issue_tracker_url: https://git.sekoya.org/mb/ntp/issues
 
   license: GPLv3
 
@@ -13,6 +15,7 @@ galaxy_info:
     - jessie
     - stretch
     - buster
+    - sid
 
   galaxy_tags:
     - ntp
