@@ -27,9 +27,14 @@ None.
 
 ## Install this role as submodule in a git repository
 
-`git submodule add https://github.com/mbocquet/ntp.git roles/ntp`
+`git submodule add https://git.sekoya.org/mb/ntp.git roles/ntp`
 
 ## Example Playbook
+
+    - hosts: ntp
+      roles:
+         - ntp
+or
 
     - hosts: ntp
       roles:
